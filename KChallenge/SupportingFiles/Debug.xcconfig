@@ -11,8 +11,9 @@ MOSKI_APP_NAME = MoskiAppDebug
 MOSKI_APP_VERSION = $(inherited).3
 
 // MARK: - Environment and base URLS
-MOSKI_API_BASE_URL = https:\/\/api.themoviedb.org
-MOSKI_BUCKET_URL = https:\/\/image.tmdb.org
+MOSKI_API_SCHEMA = https
+MOSKI_API_BASE_URL = api.themoviedb.org
+MOSKI_BUCKET_URL = image.tmdb.org
 
 // Networking Access Token
-MOSKI_PERSONAL_ACCESS_TOKEN = 
+MOSKI_PERSONAL_ACCESS_TOKEN = eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzOTQ2OWUwZmJmN2U5NWQwNWViNzcyNDJkZjM1NTY5ZCIsIm5iZiI6MTcyMzc3MTU2My45MDE2NjQsInN1YiI6IjYxMjZiN2ZiMWJmODc2MDA2MjIyZDJhYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.vZwVMGR04vZU-uORuiqHNIiZgMwpRLqjxD0HXggy9N4
