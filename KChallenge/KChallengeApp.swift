@@ -25,7 +25,7 @@ struct KChallengeApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ListMoviesView()
         }
         .modelContainer(sharedModelContainer)
     }

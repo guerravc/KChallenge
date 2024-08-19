@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  ListMoviesView.swift
 //  KChallenge
 //
 //  Created by Carlos Guerra Lopez on 16/08/24.
@@ -8,9 +8,10 @@
 import SwiftUI
 import SwiftData
 
-struct ContentView: View {
+struct ListMoviesView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
+    @ObservedObject private var state: ListMoviesState = .init()
 
     var body: some View {
         NavigationSplitView {
@@ -34,6 +35,9 @@ struct ContentView: View {
                     }
                 }
             }
+            .onAppear {
+                state.loadMostPopularMovies()
+            }
         } detail: {
             Text("Select an item")
         }
@@ -56,6 +60,6 @@ struct ContentView: View {
 }
 
 #Preview(traits: .fixedLayout(width: 345, height: 150)) {
-    ContentView()
+    ListMoviesView()
         .modelContainer(for: Item.self, inMemory: true)
 }
