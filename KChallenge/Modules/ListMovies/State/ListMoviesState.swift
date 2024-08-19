@@ -9,6 +9,8 @@ import Foundation
 
 class ListMoviesState: ObservableObject {
     @Published var movies: [ListMovieModel] = []
+    @Published var selectedSection: ListMoviesSection = .popular
+    var sections: [ListMoviesSection] = [.popular, .now]
     
     func loadMostPopularMovies() {
         let input: GetMostPopularMoviesUseCase.Input = .init(includeAdult: false, includeVideo: false, language: .en, page: 1, sortBy: "popularity.desc")
@@ -28,4 +30,10 @@ class ListMoviesState: ObservableObject {
             }
         }
     }
+}
+
+
+enum ListMoviesSection: String {
+    case popular = "Most popular"
+    case now = "Now playing"
 }
