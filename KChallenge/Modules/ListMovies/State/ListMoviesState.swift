@@ -8,12 +8,19 @@
 import Foundation
 
 class ListMoviesState: ObservableObject {
+    @Published var movies: [ListMovieModel] = []
+    
     func loadMostPopularMovies() {
         let input: GetMostPopularMoviesUseCase.Input = .init(includeAdult: false, includeVideo: false, language: .en, page: 1, sortBy: "popularity.desc")
-        GetMostPopularMoviesUseCase().execute(input) { result in
+        GetMostPopularMoviesUseCase().execute(input) { [unowned self] result in
             switch result {
-            case let .success(movies):
-                PrintLog.debug("\(movies)")
+            case let .success(data):
+                var tempMovies: [ListMovieModel] = []
+                for movie in data {
+                    let tempMovie: ListMovieModel = .init(idMovie: movie.id, title: movie.title)
+                    tempMovies.append(tempMovie)
+                }
+                movies = tempMovies
                 break
             case let .failure(error):
                 PrintLog.debug("\(error)")

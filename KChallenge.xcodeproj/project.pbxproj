@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		120B41442C70539E004D416F /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 120B41432C70539E004D416F /* Debug.xcconfig */; };
+		1234BCF22C72F562003355EA /* ListMovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234BCF12C72F562003355EA /* ListMovieModel.swift */; };
 		12BC0BFE2C702794009EAC87 /* KChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BC0BFD2C702794009EAC87 /* KChallengeApp.swift */; };
 		12BC0C002C702794009EAC87 /* ListMoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BC0BFF2C702794009EAC87 /* ListMoviesView.swift */; };
 		12BC0C022C702794009EAC87 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BC0C012C702794009EAC87 /* Item.swift */; };
@@ -63,6 +64,7 @@
 /* Begin PBXFileReference section */
 		120B41432C70539E004D416F /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		120B41452C7057FD004D416F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1234BCF12C72F562003355EA /* ListMovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMovieModel.swift; sourceTree = "<group>"; };
 		12BC0BFA2C702794009EAC87 /* KChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12BC0BFD2C702794009EAC87 /* KChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KChallengeApp.swift; sourceTree = "<group>"; };
 		12BC0BFF2C702794009EAC87 /* ListMoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesView.swift; sourceTree = "<group>"; };
@@ -419,6 +421,7 @@
 			isa = PBXGroup;
 			children = (
 				12BC0C012C702794009EAC87 /* Item.swift */,
+				1234BCF12C72F562003355EA /* ListMovieModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -648,6 +651,7 @@
 				12ECC4772C72DD8900CAECFD /* ListMoviesState.swift in Sources */,
 				12ECC4622C727BF100CAECFD /* AppInfo.swift in Sources */,
 				12ECC46E2C72C06100CAECFD /* InjectWrapper.swift in Sources */,
+				1234BCF22C72F562003355EA /* ListMovieModel.swift in Sources */,
 				12ECC4632C727BF100CAECFD /* API.swift in Sources */,
 				12ECC46C2C72AF9B00CAECFD /* MoskiConfiguration.swift in Sources */,
 				12BC0BFE2C702794009EAC87 /* KChallengeApp.swift in Sources */,
