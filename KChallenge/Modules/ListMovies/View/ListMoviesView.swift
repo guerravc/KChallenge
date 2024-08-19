@@ -22,6 +22,16 @@ struct ListMoviesView: View {
             }
             .pickerStyle(.segmented)
             .padding()
+            .onChange(of: state.selectedSection) {
+                switch state.selectedSection {
+                    case .popular:
+                        state.loadMostPopularMovies()
+                        break
+                    case .now:
+                        state.loadNowPlayingMovies()
+                        break
+                }
+            }
             List(state.movies) { movie in
                 Text(" \(movie.title)")
             }

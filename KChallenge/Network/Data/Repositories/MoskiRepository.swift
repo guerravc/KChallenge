@@ -12,11 +12,12 @@ final class MoskiRepository: MoskiGateway {
     
     @Inject private var remoteDataSource: MoskiRemoteDataSource
     @Inject private var localDateSource: MoskiLocalDataSource
+    static private let shared = MoskiRepository()
     
     private init() {}
     
     static func make() -> MoskiGateway {
-        MoskiRepository()
+        shared
     }
     
     // Data fetch service methods goes here
@@ -25,6 +26,17 @@ final class MoskiRepository: MoskiGateway {
         Task.init {
             do {
                 let result = try await remoteDataSource.getMostPopularMovies(request: request)
+                completion(.success(result.results))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+    }
+    
+    func getNowPlayingMovies(request: NowPlayingMoviesRequest, completion: @escaping GetNowPlayingMoviesResult) {
+        Task.init {
+            do {
+                let result = try await remoteDataSource.getNowPlayingMovies(request: request)
                 completion(.success(result.results))
             } catch {
                 completion(.failure(error))
