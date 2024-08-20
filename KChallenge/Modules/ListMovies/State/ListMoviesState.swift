@@ -10,6 +10,7 @@ import Foundation
 class ListMoviesState: ObservableObject {
     @Published var movies: [ListMovieModel] = []
     @Published var selectedSection: ListMoviesSection = .popular
+    @Published var selectedType: ListMoviesType = .list
     var sections: [ListMoviesSection] = [.popular, .now]
     
     func loadMostPopularMovies() {
@@ -53,13 +54,38 @@ class ListMoviesState: ObservableObject {
         var tempMovies: [ListMovieModel] = []
         for movie in data {
             let tempMovie: ListMovieModel = .init(idMovie: movie.id,
-                                                  title: movie.title)
+                                                  title: movie.title, image: movie.posterPath)
             tempMovies.append(tempMovie)
         }
         return tempMovies
     }
 }
 
+
+enum ListMoviesType: String, Equatable {
+    case grid
+    case list
+    
+    static func == (lhs: ListMoviesType, rhs: ListMoviesType) -> Bool {
+        switch (lhs, rhs) {
+            case (.grid, .grid):
+                return true
+            case (.list, .list):
+                return true
+            default:
+                return false
+        }
+    }
+    
+    func getImageName() -> String {
+        switch self {
+            case .grid:
+                return "rectangle.grid.3x2"
+            case .list:
+                return "list.bullet"
+        }
+    }
+}
 
 enum ListMoviesSection: String, Equatable {
     case popular = "Most popular"
@@ -73,6 +99,15 @@ enum ListMoviesSection: String, Equatable {
                 return true
             default:
                 return false
+        }
+    }
+    
+    func getText() -> String {
+        switch self {
+            case .popular:
+                return "Most Popular"
+            case .now:
+                return "Now Playing"
         }
     }
 }

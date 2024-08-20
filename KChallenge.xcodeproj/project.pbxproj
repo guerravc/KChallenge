@@ -13,6 +13,11 @@
 		1234BCF62C730E9E003355EA /* NowPlayingMovies+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234BCF52C730E9E003355EA /* NowPlayingMovies+Response.swift */; };
 		1234BCFB2C730FAE003355EA /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234BCFA2C730FAE003355EA /* Dates.swift */; };
 		1234BCFD2C73128B003355EA /* GetNowPlayingMoviesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234BCFC2C73128B003355EA /* GetNowPlayingMoviesUseCase.swift */; };
+		1234BD022C73E4C7003355EA /* MoskiAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234BD012C73E4C7003355EA /* MoskiAsyncImage.swift */; };
+		1234BD042C73ED3A003355EA /* GetMoviePosterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234BD032C73ED3A003355EA /* GetMoviePosterUseCase.swift */; };
+		1234BD062C740129003355EA /* TableMoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234BD052C740129003355EA /* TableMoviesView.swift */; };
+		1234BD082C7403D4003355EA /* GridMoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234BD072C7403D4003355EA /* GridMoviesView.swift */; };
+		1234BD0A2C741706003355EA /* GridMoviesState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234BD092C741706003355EA /* GridMoviesState.swift */; };
 		12BC0BFE2C702794009EAC87 /* KChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BC0BFD2C702794009EAC87 /* KChallengeApp.swift */; };
 		12BC0C002C702794009EAC87 /* ListMoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BC0BFF2C702794009EAC87 /* ListMoviesView.swift */; };
 		12BC0C022C702794009EAC87 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BC0C012C702794009EAC87 /* Item.swift */; };
@@ -73,6 +78,11 @@
 		1234BCF52C730E9E003355EA /* NowPlayingMovies+Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NowPlayingMovies+Response.swift"; sourceTree = "<group>"; };
 		1234BCFA2C730FAE003355EA /* Dates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
 		1234BCFC2C73128B003355EA /* GetNowPlayingMoviesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNowPlayingMoviesUseCase.swift; sourceTree = "<group>"; };
+		1234BD012C73E4C7003355EA /* MoskiAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoskiAsyncImage.swift; sourceTree = "<group>"; };
+		1234BD032C73ED3A003355EA /* GetMoviePosterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoviePosterUseCase.swift; sourceTree = "<group>"; };
+		1234BD052C740129003355EA /* TableMoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableMoviesView.swift; sourceTree = "<group>"; };
+		1234BD072C7403D4003355EA /* GridMoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridMoviesView.swift; sourceTree = "<group>"; };
+		1234BD092C741706003355EA /* GridMoviesState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridMoviesState.swift; sourceTree = "<group>"; };
 		12BC0BFA2C702794009EAC87 /* KChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12BC0BFD2C702794009EAC87 /* KChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KChallengeApp.swift; sourceTree = "<group>"; };
 		12BC0BFF2C702794009EAC87 /* ListMoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesView.swift; sourceTree = "<group>"; };
@@ -172,6 +182,17 @@
 				1234BCF32C730CA4003355EA /* NowPlayingMovies+Request.swift */,
 			);
 			path = Request;
+			sourceTree = "<group>";
+		};
+		1234BD002C73E4A6003355EA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				1234BD012C73E4C7003355EA /* MoskiAsyncImage.swift */,
+				1234BD052C740129003355EA /* TableMoviesView.swift */,
+				1234BD072C7403D4003355EA /* GridMoviesView.swift */,
+				1234BD092C741706003355EA /* GridMoviesState.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		12BC0BF12C702794009EAC87 = {
@@ -380,6 +401,7 @@
 				12ECC44F2C727BF100CAECFD /* GetMostPopularMoviesUseCase.swift */,
 				12ECC4502C727BF100CAECFD /* UseCase.swift */,
 				1234BCFC2C73128B003355EA /* GetNowPlayingMoviesUseCase.swift */,
+				1234BD032C73ED3A003355EA /* GetMoviePosterUseCase.swift */,
 			);
 			path = UsesCases;
 			sourceTree = "<group>";
@@ -448,6 +470,7 @@
 		12ECC4742C72DC3400CAECFD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1234BD002C73E4A6003355EA /* Components */,
 				12BC0BFF2C702794009EAC87 /* ListMoviesView.swift */,
 			);
 			path = View;
@@ -671,7 +694,9 @@
 				1234BCF42C730CA4003355EA /* NowPlayingMovies+Request.swift in Sources */,
 				12ECC4552C727BF100CAECFD /* UseCase.swift in Sources */,
 				12ECC4562C727BF100CAECFD /* APIRequestDispatcher.swift in Sources */,
+				1234BD062C740129003355EA /* TableMoviesView.swift in Sources */,
 				12ECC4572C727BF100CAECFD /* StatusCodes.swift in Sources */,
+				1234BD022C73E4C7003355EA /* MoskiAsyncImage.swift in Sources */,
 				12ECC4582C727BF100CAECFD /* Methods.swift in Sources */,
 				12ECC4592C727BF100CAECFD /* ServerError.swift in Sources */,
 				1234BCFB2C730FAE003355EA /* Dates.swift in Sources */,
@@ -680,6 +705,9 @@
 				12ECC4702C72C17600CAECFD /* DependencyContainer.swift in Sources */,
 				12ECC45C2C727BF100CAECFD /* MoskiStorage.swift in Sources */,
 				12ECC45D2C727BF100CAECFD /* MostPopularMovies+Response.swift in Sources */,
+				1234BD082C7403D4003355EA /* GridMoviesView.swift in Sources */,
+				1234BD0A2C741706003355EA /* GridMoviesState.swift in Sources */,
+				1234BD042C73ED3A003355EA /* GetMoviePosterUseCase.swift in Sources */,
 				12ECC4652C7294F700CAECFD /* Language.swift in Sources */,
 				12ECC45E2C727BF100CAECFD /* Movie.swift in Sources */,
 				12ECC45F2C727BF100CAECFD /* MoskiService.swift in Sources */,

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class MoskiRepository: MoskiGateway {
     
@@ -41,6 +42,17 @@ final class MoskiRepository: MoskiGateway {
             } catch {
                 completion(.failure(error))
             }
+        }
+    }
+    
+    func getMoviePoster(request imageName: String) async throws -> UIImage {
+        do {
+            let image = try await localDateSource.getMoviePoster(request: imageName)
+            return image
+        } catch {
+            let image = try await remoteDataSource.getMoviePoster(request: imageName)
+            localDateSource.saveImageInCache(imageName: imageName, image: image)
+            return image
         }
     }
 }

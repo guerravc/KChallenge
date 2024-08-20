@@ -29,3 +29,10 @@ protocol ParameteredVoidResultUseCase {
     _ input: Input,
     completion: @escaping (Result<Void, Error>) -> Void)
 }
+
+protocol ParameteredAsyncResultUseCase {
+    associatedtype Input
+    associatedtype Output
+    
+    func execute(_ input: Input) async throws -> Output
+}
