@@ -12,4 +12,6 @@ enum Language: String, Codable {
     case es = "es"
     case fr = "fr"
     case hi = "hi"
+    case zh = "zh"
+    case ko = "ko"
 }

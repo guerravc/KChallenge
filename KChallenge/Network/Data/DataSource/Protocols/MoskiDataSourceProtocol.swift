@@ -11,6 +11,7 @@ import Foundation
 protocol MoskiRemoteDataSource {
   // TODO: Data fetch functions from server
     func getMostPopularMovies(request: MostPopularMoviesRequest) async throws -> MostPopularMoviesResponse
+    func getNowPlayingMovies(request: NowPlayingMoviesRequest) async throws -> NowPlayingMoviesResponse
 }
 
 // MARK: - Local (Repository -> LocalDataSource)

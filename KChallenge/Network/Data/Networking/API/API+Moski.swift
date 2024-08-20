@@ -10,6 +10,7 @@ import Foundation
 extension API.V3 {
     enum Moski: APIRouter{
         case getMostPopularMovies(request: MostPopularMoviesRequest)
+        case getNowPlayingMovies(request: NowPlayingMoviesRequest)
         
         var scheme: String {
             switch API.version {
@@ -29,12 +30,14 @@ extension API.V3 {
             switch self {
             case .getMostPopularMovies:
                 return "/\(API.version.rawValue)/discover/movie"
+            case .getNowPlayingMovies:
+                return "/\(API.version.rawValue)/movie/now_playing"
             }
         }
         
         var method: HttpMethod {
             switch self {
-            case .getMostPopularMovies:
+            case .getMostPopularMovies, .getNowPlayingMovies:
                 return .get
             }
         }
@@ -48,12 +51,16 @@ extension API.V3 {
                                   URLQueryItem(name: "page", value: "\(request.page)"),
                                   URLQueryItem(name: "sort_by", value: "\(request.sortBy)")]
                 return parameters
+            case let .getNowPlayingMovies(request):
+                let parameters = [URLQueryItem(name: "language", value: "\(request.language.rawValue)"),
+                                  URLQueryItem(name: "page", value: "\(request.page)")]
+                return parameters
             }
         }
         
         var body: String? {
             switch self {
-            case .getMostPopularMovies:
+            case .getMostPopularMovies, .getNowPlayingMovies:
                 return nil
             }
         }
@@ -61,14 +68,14 @@ extension API.V3 {
         var authorizationToken: String? {
             switch self {
                 
-            case .getMostPopularMovies:
+            case .getMostPopularMovies, .getNowPlayingMovies:
                 return AppInfo.authenticationToken
             }
         }
         
         var authenticationType: String? {
             switch self {
-            case .getMostPopularMovies:
+            case .getMostPopularMovies, .getNowPlayingMovies:
                 return NSURLAuthenticationMethodServerTrust
             }
         }

@@ -20,4 +20,9 @@ final class MoskiService: MoskiRemoteDataSource {
         let response: MostPopularMoviesResponse = try await dispatcher.request(apiRouter: API.V3.Moski.getMostPopularMovies(request: request))
         return response
     }
+    
+    func getNowPlayingMovies(request: NowPlayingMoviesRequest) async throws -> NowPlayingMoviesResponse {
+        let response: NowPlayingMoviesResponse = try await dispatcher.request(apiRouter: API.V3.Moski.getNowPlayingMovies(request: request))
+        return response
+    }
 }

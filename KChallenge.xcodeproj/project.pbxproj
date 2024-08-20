@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		120B41442C70539E004D416F /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 120B41432C70539E004D416F /* Debug.xcconfig */; };
 		1234BCF22C72F562003355EA /* ListMovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234BCF12C72F562003355EA /* ListMovieModel.swift */; };
+		1234BCF42C730CA4003355EA /* NowPlayingMovies+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234BCF32C730CA4003355EA /* NowPlayingMovies+Request.swift */; };
+		1234BCF62C730E9E003355EA /* NowPlayingMovies+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234BCF52C730E9E003355EA /* NowPlayingMovies+Response.swift */; };
+		1234BCFB2C730FAE003355EA /* Dates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234BCFA2C730FAE003355EA /* Dates.swift */; };
+		1234BCFD2C73128B003355EA /* GetNowPlayingMoviesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1234BCFC2C73128B003355EA /* GetNowPlayingMoviesUseCase.swift */; };
 		12BC0BFE2C702794009EAC87 /* KChallengeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BC0BFD2C702794009EAC87 /* KChallengeApp.swift */; };
 		12BC0C002C702794009EAC87 /* ListMoviesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BC0BFF2C702794009EAC87 /* ListMoviesView.swift */; };
 		12BC0C022C702794009EAC87 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BC0C012C702794009EAC87 /* Item.swift */; };
@@ -27,7 +31,7 @@
 		12ECC45A2C727BF100CAECFD /* API+Moski.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ECC43D2C727BF100CAECFD /* API+Moski.swift */; };
 		12ECC45B2C727BF100CAECFD /* GetMostPopularMoviesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ECC44F2C727BF100CAECFD /* GetMostPopularMoviesUseCase.swift */; };
 		12ECC45C2C727BF100CAECFD /* MoskiStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ECC4352C727BF100CAECFD /* MoskiStorage.swift */; };
-		12ECC45D2C727BF100CAECFD /* Moski+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ECC44A2C727BF100CAECFD /* Moski+Response.swift */; };
+		12ECC45D2C727BF100CAECFD /* MostPopularMovies+Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ECC44A2C727BF100CAECFD /* MostPopularMovies+Response.swift */; };
 		12ECC45E2C727BF100CAECFD /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ECC4492C727BF100CAECFD /* Movie.swift */; };
 		12ECC45F2C727BF100CAECFD /* MoskiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ECC4392C727BF100CAECFD /* MoskiService.swift */; };
 		12ECC4602C727BF100CAECFD /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12ECC4402C727BF100CAECFD /* Configuration.swift */; };
@@ -65,6 +69,10 @@
 		120B41432C70539E004D416F /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		120B41452C7057FD004D416F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1234BCF12C72F562003355EA /* ListMovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMovieModel.swift; sourceTree = "<group>"; };
+		1234BCF32C730CA4003355EA /* NowPlayingMovies+Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NowPlayingMovies+Request.swift"; sourceTree = "<group>"; };
+		1234BCF52C730E9E003355EA /* NowPlayingMovies+Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NowPlayingMovies+Response.swift"; sourceTree = "<group>"; };
+		1234BCFA2C730FAE003355EA /* Dates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dates.swift; sourceTree = "<group>"; };
+		1234BCFC2C73128B003355EA /* GetNowPlayingMoviesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetNowPlayingMoviesUseCase.swift; sourceTree = "<group>"; };
 		12BC0BFA2C702794009EAC87 /* KChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12BC0BFD2C702794009EAC87 /* KChallengeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KChallengeApp.swift; sourceTree = "<group>"; };
 		12BC0BFF2C702794009EAC87 /* ListMoviesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMoviesView.swift; sourceTree = "<group>"; };
@@ -89,7 +97,7 @@
 		12ECC4432C727BF100CAECFD /* StatusCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusCodes.swift; sourceTree = "<group>"; };
 		12ECC4462C727BF100CAECFD /* MoskiRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoskiRepository.swift; sourceTree = "<group>"; };
 		12ECC4492C727BF100CAECFD /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
-		12ECC44A2C727BF100CAECFD /* Moski+Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Moski+Response.swift"; sourceTree = "<group>"; };
+		12ECC44A2C727BF100CAECFD /* MostPopularMovies+Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MostPopularMovies+Response.swift"; sourceTree = "<group>"; };
 		12ECC44D2C727BF100CAECFD /* MoskiGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoskiGateway.swift; sourceTree = "<group>"; };
 		12ECC44F2C727BF100CAECFD /* GetMostPopularMoviesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMostPopularMoviesUseCase.swift; sourceTree = "<group>"; };
 		12ECC4502C727BF100CAECFD /* UseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCase.swift; sourceTree = "<group>"; };
@@ -139,6 +147,31 @@
 				120B41432C70539E004D416F /* Debug.xcconfig */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		1234BCF72C730F15003355EA /* NowPlaying */ = {
+			isa = PBXGroup;
+			children = (
+				1234BCF92C730F30003355EA /* Request */,
+				1234BCF82C730F2A003355EA /* Response */,
+			);
+			path = NowPlaying;
+			sourceTree = "<group>";
+		};
+		1234BCF82C730F2A003355EA /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				1234BCF52C730E9E003355EA /* NowPlayingMovies+Response.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		1234BCF92C730F30003355EA /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				1234BCF32C730CA4003355EA /* NowPlayingMovies+Request.swift */,
+			);
+			path = Request;
 			sourceTree = "<group>";
 		};
 		12BC0BF12C702794009EAC87 = {
@@ -316,6 +349,10 @@
 		12ECC44B2C727BF100CAECFD /* Moski */ = {
 			isa = PBXGroup;
 			children = (
+				1234BCFA2C730FAE003355EA /* Dates.swift */,
+				12ECC4642C7294F600CAECFD /* Language.swift */,
+				12ECC4492C727BF100CAECFD /* Movie.swift */,
+				1234BCF72C730F15003355EA /* NowPlaying */,
 				12ECC4662C72A39A00CAECFD /* MostPopular */,
 			);
 			path = Moski;
@@ -342,6 +379,7 @@
 			children = (
 				12ECC44F2C727BF100CAECFD /* GetMostPopularMoviesUseCase.swift */,
 				12ECC4502C727BF100CAECFD /* UseCase.swift */,
+				1234BCFC2C73128B003355EA /* GetNowPlayingMoviesUseCase.swift */,
 			);
 			path = UsesCases;
 			sourceTree = "<group>";
@@ -361,8 +399,6 @@
 			children = (
 				12ECC4682C72A3BB00CAECFD /* Request */,
 				12ECC4672C72A3A900CAECFD /* Response */,
-				12ECC4642C7294F600CAECFD /* Language.swift */,
-				12ECC4492C727BF100CAECFD /* Movie.swift */,
 			);
 			path = MostPopular;
 			sourceTree = "<group>";
@@ -370,7 +406,7 @@
 		12ECC4672C72A3A900CAECFD /* Response */ = {
 			isa = PBXGroup;
 			children = (
-				12ECC44A2C727BF100CAECFD /* Moski+Response.swift */,
+				12ECC44A2C727BF100CAECFD /* MostPopularMovies+Response.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -632,16 +668,18 @@
 				12BC0C022C702794009EAC87 /* Item.swift in Sources */,
 				12ECC4532C727BF100CAECFD /* MoskiGateway.swift in Sources */,
 				12ECC4542C727BF100CAECFD /* MoskiRepository.swift in Sources */,
+				1234BCF42C730CA4003355EA /* NowPlayingMovies+Request.swift in Sources */,
 				12ECC4552C727BF100CAECFD /* UseCase.swift in Sources */,
 				12ECC4562C727BF100CAECFD /* APIRequestDispatcher.swift in Sources */,
 				12ECC4572C727BF100CAECFD /* StatusCodes.swift in Sources */,
 				12ECC4582C727BF100CAECFD /* Methods.swift in Sources */,
 				12ECC4592C727BF100CAECFD /* ServerError.swift in Sources */,
+				1234BCFB2C730FAE003355EA /* Dates.swift in Sources */,
 				12ECC45A2C727BF100CAECFD /* API+Moski.swift in Sources */,
 				12ECC45B2C727BF100CAECFD /* GetMostPopularMoviesUseCase.swift in Sources */,
 				12ECC4702C72C17600CAECFD /* DependencyContainer.swift in Sources */,
 				12ECC45C2C727BF100CAECFD /* MoskiStorage.swift in Sources */,
-				12ECC45D2C727BF100CAECFD /* Moski+Response.swift in Sources */,
+				12ECC45D2C727BF100CAECFD /* MostPopularMovies+Response.swift in Sources */,
 				12ECC4652C7294F700CAECFD /* Language.swift in Sources */,
 				12ECC45E2C727BF100CAECFD /* Movie.swift in Sources */,
 				12ECC45F2C727BF100CAECFD /* MoskiService.swift in Sources */,
@@ -651,9 +689,11 @@
 				12ECC4772C72DD8900CAECFD /* ListMoviesState.swift in Sources */,
 				12ECC4622C727BF100CAECFD /* AppInfo.swift in Sources */,
 				12ECC46E2C72C06100CAECFD /* InjectWrapper.swift in Sources */,
+				1234BCF62C730E9E003355EA /* NowPlayingMovies+Response.swift in Sources */,
 				1234BCF22C72F562003355EA /* ListMovieModel.swift in Sources */,
 				12ECC4632C727BF100CAECFD /* API.swift in Sources */,
 				12ECC46C2C72AF9B00CAECFD /* MoskiConfiguration.swift in Sources */,
+				1234BCFD2C73128B003355EA /* GetNowPlayingMoviesUseCase.swift in Sources */,
 				12BC0BFE2C702794009EAC87 /* KChallengeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

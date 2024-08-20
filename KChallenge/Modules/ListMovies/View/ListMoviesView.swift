@@ -15,8 +15,25 @@ struct ListMoviesView: View {
     
     var body: some View {
         NavigationSplitView {
+            Picker("", selection: $state.selectedSection) {
+                ForEach(state.sections, id: \.self) {
+                    Text($0.rawValue)
+                }
+            }
+            .pickerStyle(.segmented)
+            .padding()
+            .onChange(of: state.selectedSection) {
+                switch state.selectedSection {
+                    case .popular:
+                        state.loadMostPopularMovies()
+                        break
+                    case .now:
+                        state.loadNowPlayingMovies()
+                        break
+                }
+            }
             List(state.movies) { movie in
-                    Text(" \(movie.title)")
+                Text(" \(movie.title)")
             }
             .onAppear {
                 state.loadMostPopularMovies()
