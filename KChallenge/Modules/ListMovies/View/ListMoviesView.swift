@@ -14,32 +14,59 @@ struct ListMoviesView: View {
     @ObservedObject private var state: ListMoviesState = .init()
     
     var body: some View {
-        NavigationSplitView {
-            Picker("", selection: $state.selectedSection) {
-                ForEach(state.sections, id: \.self) {
-                    Text($0.rawValue)
+        NavigationView {
+            VStack {
+                Picker("", selection: $state.selectedSection) {
+                    ForEach(state.sections, id: \.self) {
+                        Text($0.rawValue)
+                    }
+                }
+                .pickerStyle(.segmented)
+                .padding()
+                .onChange(of: state.selectedSection) {
+                    switch state.selectedSection {
+                        case .popular:
+                            state.loadMostPopularMovies()
+                            break
+                        case .now:
+                            state.loadNowPlayingMovies()
+                            break
+                    }
+                }
+                if state.selectedType == .list {
+                    TableMoviesView(movies: $state.movies)
+                        .navigationTitle(state.selectedSection.getText())
+                        .toolbar {
+                            HStack(alignment: .center) {
+                                Button {
+                                    state.selectedType = .grid
+                                    state.loadMostPopularMovies()
+                                } label: {
+                                    Image(systemName: ListMoviesType.grid.getImageName())
+                                }
+                            }
+                        }
+                        .onAppear {
+                            state.loadMostPopularMovies()
+                        }
+                } else {
+                    GridMoviesView(movies: $state.movies)
+                        .navigationTitle(state.selectedSection.getText())
+                        .toolbar {
+                            HStack(alignment: .center) {
+                                Button {
+                                    state.selectedType = .list
+                                    state.loadMostPopularMovies()
+                                } label: {
+                                    Image(systemName: ListMoviesType.list.getImageName())
+                                }
+                            }
+                        }
+                        .onAppear {
+                            state.loadMostPopularMovies()
+                        }
                 }
             }
-            .pickerStyle(.segmented)
-            .padding()
-            .onChange(of: state.selectedSection) {
-                switch state.selectedSection {
-                    case .popular:
-                        state.loadMostPopularMovies()
-                        break
-                    case .now:
-                        state.loadNowPlayingMovies()
-                        break
-                }
-            }
-            List(state.movies) { movie in
-                Text(" \(movie.title)")
-            }
-            .onAppear {
-                state.loadMostPopularMovies()
-            }
-        } detail: {
-            Text("Select an item")
         }
     }
     

@@ -14,7 +14,7 @@ protocol HttpConfiguration {
 
 extension HttpConfiguration {
   var requestTimeoutInterval: TimeInterval {
-    return 10.0
+    return 30.0
   }
 }
 
