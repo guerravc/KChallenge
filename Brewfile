@@ -1,7 +1,3 @@
-# Taps
-tap "homebrew/bundle"
-tap "homebrew/cask"
-
 # =============================================================================
 # Development Tools
 # =============================================================================
@@ -18,7 +14,7 @@ brew "ruby-build"             # Ruby build tool for rbenv
 # iOS Development Tools
 brew "swiftlint"              # Swift code linting
 brew "swiftformat"            # Swift code formatting
-brew "xcpretty"               # Xcode build output formatter
+# Note: xcpretty is now installed as a Ruby gem instead of Homebrew formula
 brew "xcode-build-server"     # Language Server Protocol for Xcode
 
 # =============================================================================

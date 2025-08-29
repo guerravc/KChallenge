@@ -27,6 +27,7 @@ gem "rubocop-performance", "~> 1.20"   # Performance-focused RuboCop rules
 # Development utilities
 gem "bundler", "~> 2.5"                # Dependency manager
 gem "rake", "~> 13.0"                  # Build tool
+gem "xcpretty", "~> 0.3"               # Xcode build output formatter
 
 # =============================================================================
 # Optional Tools (uncomment as needed)
