@@ -1,7 +1,9 @@
 .DEFAULT_GOAL := help
 SHELL := /bin/bash
 .ONESHELL:
-set -euo pipefail
+
+# Enable strict error handling
+.SHELLFLAGS := -euo pipefail -c
 
 # Project Configuration
 PROJECT_NAME := KChallenge
@@ -126,7 +128,8 @@ derived-data-clean: ## Clean Xcode derived data
 	@echo "🗑️  Cleaning derived data..."
 	rm -rf ~/Library/Developer/Xcode/DerivedData/*
 	rm -rf "$(DERIVED_DATA_PATH)"
-	simulator-reset: ## Reset iOS Simulator
+
+simulator-reset: ## Reset iOS Simulator
 	@echo "📱 Resetting iOS Simulator..."
 	xcrun simctl erase all
 
