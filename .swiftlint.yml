@@ -1,58 +1,209 @@
-disabled_rules: # rule identifiers to exclude from running
-  - identifier_name
-  - trailing_whitespace
+# SwiftLint Configuration for KChallenge
+# Updated with modern best practices and comprehensive rules
 
-opt_in_rules: # some rules are only opt-in
-#  - empty_count
-# Find all the available rules by running:
-# swiftlint rules
-included: # paths to include during linting. `--path` is ignored if present.
+# =============================================================================
+# Path Configuration
+# =============================================================================
+
+included: # Paths to include during linting
   - KChallenge
 
-excluded: # paths to ignore during linting. Takes precedence over `included`.
+excluded: # Paths to ignore during linting (takes precedence over included)
   - Pods
-  - Frameworks
+  - Frameworks 
   - KChallenge/SupportingFiles
-  
+  - "**/Generated"
+  - "**/Mocks"
+  - build
+  - DerivedData
+  - "**/*.generated.swift"
+  - "**/*+CoreDataClass.swift"
+  - "**/*+CoreDataProperties.swift"
 
-# configurable rules can be customized from this configuration file
-# binary rules can set their severity level
-#force_cast: warning # implicitly
-force_try:
-  severity: warning # explicitly
-# rules that have both warning and error levels, can set just the warning level
-# implicitly
+# =============================================================================
+# Disabled Rules (rules to exclude from running)
+# =============================================================================
+
+disabled_rules:
+  # Identifier naming can be too strict for certain cases
+  - identifier_name
+  # Allow some trailing whitespace for markdown and comments
+  - trailing_whitespace
+  # Sometimes useful for debugging
+  - todo
+  # Can be overly restrictive
+  - line_length
+  # Prefer explicit over implicit
+  - implicit_return
+  # Allow force unwrapping in tests and specific contexts
+  - force_unwrapping
+
+# =============================================================================
+# Opt-in Rules (additional rules to enable)
+# =============================================================================
+
+opt_in_rules:
+  # Code Quality
+  - empty_count                    # Prefer checking isEmpty over count == 0
+  - empty_string                   # Prefer checking isEmpty over == ""
+  - first_where                    # Prefer .first(where:) over .filter { }.first
+  - flatmap_over_map_reduce       # Prefer flatMap over map + reduce
+  - last_where                     # Prefer .last(where:) over .filter { }.last
+  - reduce_into                    # Prefer reduce(into:) for performance
+  - contains_over_filter_count    # Prefer contains over filter.count > 0
+  - contains_over_filter_is_empty # Prefer contains over filter.isEmpty
+  - contains_over_first_not_nil   # Prefer contains over first != nil
+  
+  # Performance
+  - empty_collection_literal      # Use isEmpty instead of count == 0
+  - for_where                     # Prefer for-where over if inside for
+  - sorted_first_last            # Prefer min()/max() over sorted().first/last
+  
+  # Safety
+  - fatal_error_message          # Fatal errors should have messages
+  - force_unwrapping             # Enable with custom configuration
+  - implicitly_unwrapped_optional # Avoid IUO when possible
+  - strong_iboutlet              # IBOutlets should be weak
+  
+  # Code Style
+  - closure_spacing              # Proper spacing in closures
+  - comma_inheritance           # Comma placement in inheritance
+  - conditional_returns_on_newline # Consistent return placement
+  - multiline_arguments         # Consistent multiline arguments
+  - multiline_function_chains   # Consistent multiline chaining
+  - multiline_parameters        # Consistent multiline parameters
+  - operator_usage_whitespace   # Proper operator spacing
+  - overridden_super_call      # Ensure super calls in overrides
+  - redundant_nil_coalescing   # Remove redundant ?? nil
+  - redundant_type_annotation  # Remove redundant type annotations
+  - toggle_bool                # Prefer toggle() over = !bool
+  - unneeded_parentheses_in_closure_argument # Remove unnecessary parens
+  - vertical_parameter_alignment_on_call # Align parameters
+  - yoda_condition             # Prevent Yoda conditions
+  
+  # Documentation
+  - missing_docs               # Require documentation for public APIs
+  - valid_ibinspectable       # Validate @IBInspectable usage
+  
+  # SwiftUI Specific
+  - accessibility_label_for_image # Accessibility for images
+
+# =============================================================================
+# Rule Configurations
+# =============================================================================
+
+# Length Rules
 line_length:
-  warning: 140 #warning
-  error: 140 #error
-# they can set both implicitly with an array
-type_body_length:
-  - 300 # warning
-  - 400 # error
-# or they can set both explicitly
+  warning: 120
+  error: 150
+  ignores_urls: true
+  ignores_function_declarations: true
+  ignores_comments: true
+
 file_length:
-  warning: 500
-  error: 1200
-# naming rules can set warnings/errors for min_length and max_length
-# additionally they can set excluded names
-type_name:
-  min_length: 1 # only warning
-  max_length: # warning and error
-    warning: 40
-    error: 50
-  excluded: iPhone # excluded via string
-#identifier_name:
-#  min_length: 2 # only min_length
-#  excluded: # excluded via string array
-#    - id
-#    - URL
-#    - GlobalAPIKey
-function_body_length: 75
+  warning: 400
+  error: 600
+  ignore_comment_only_lines: true
+
+function_body_length:
+  warning: 50
+  error: 100
+
+type_body_length:
+  warning: 200
+  error: 350
+
+# Complexity Rules
 cyclomatic_complexity:
-  warning: 15
+  warning: 10
   error: 20
   ignores_case_statements: true
+
+nesting:
+  type_level:
+    warning: 2
+    error: 3
+  function_level:
+    warning: 3
+    error: 5
+
+# Naming Rules
+type_name:
+  min_length: 3
+  max_length:
+    warning: 40
+    error: 50
+  excluded:
+    - iPhone
+    - URL
+    - UUID
+    - API
+    - HTTP
+    - JSON
+    - XML
+    - UI
+    - ID
+
+identifier_name:
+  min_length: 1
+  max_length:
+    warning: 40
+    error: 50
+  excluded:
+    - id
+    - url
+    - URL
+    - at
+    - db
+    - to
+    - x
+    - y
+    - z
+    - i
+    - j
+    - k
+
+# Collection Rules
 large_tuple:
- warning: 3
- error: 4
-reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit, html, emoji)
+  warning: 3
+  error: 4
+
+# Force Rules (with custom severity)
+force_cast:
+  severity: warning
+
+force_try:
+  severity: warning
+
+force_unwrapping:
+  severity: error
+
+# Missing Docs Configuration
+missing_docs:
+  warning:
+    - public
+    - open
+  excludes_extensions: true
+  excludes_inherited_types: true
+
+# Custom Rules (optional - uncomment to enable)
+custom_rules:
+  # Prevent usage of print in production code
+  no_print:
+    name: "No Print"
+    regex: '\bprint\s*\('
+    message: "Use proper logging instead of print()"
+    severity: warning
+  
+  # Encourage TODO format
+  todo_format:
+    name: "TODO Format"
+    regex: '(?i)todo(?!:)'
+    message: "TODOs should follow the format: TODO: description"
+    severity: warning
+
+# =============================================================================
+# Output Configuration
+# =============================================================================
+
+reporter: "xcode" # Options: xcode, json, csv, checkstyle, junit, html, emoji, sonarqube

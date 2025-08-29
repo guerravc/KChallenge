@@ -10,7 +10,7 @@ $vSwiftLint = '~> 0.56.1'
 
 target 'KChallenge' do
   pod 'lottie-ios', $vLottie
-  pod 'SwiftLint', $vStarscreams
+  pod 'SwiftLint', $vSwiftLint
   
   project 'KChallenge.xcodeproj'
 end
